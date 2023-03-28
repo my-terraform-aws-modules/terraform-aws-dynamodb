@@ -1,13 +1,13 @@
 variable "create_table" {
   description = "Controls if DynamoDB table and associated resources are created"
   type        = bool
-  default     = true
+  default     = false
 }
 
-variable "name" {
+variable "dynamodb_name" {
   description = "Name of the DynamoDB table"
   type        = string
-  default     = "demoddb"
+  default     = ""
 }
 variable "environment" {
   description = "The environment to deploy to."

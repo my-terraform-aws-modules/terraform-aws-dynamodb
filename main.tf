@@ -4,7 +4,7 @@ provider "aws" {
 resource "aws_dynamodb_table" "this" {
   count = var.create_table  ? 1 : 0
 
-  name             = "${var.environment}-${var.name}"
+  name             = "${var.environment}-${var.dynamodb_name}"
   billing_mode     = var.billing_mode
   hash_key         = var.hash_key
   range_key        = var.range_key
@@ -64,7 +64,7 @@ resource "aws_dynamodb_table" "this" {
 }
 
 resource "aws_dynamodb_table_item" "example" {
-  count = var.dynamodb_item_create ? 1:0
+  count = var.dynamodb_item_create ? 1 : 0
   table_name = aws_dynamodb_table.this[0].name
   hash_key   = aws_dynamodb_table.this[0].hash_key
 
