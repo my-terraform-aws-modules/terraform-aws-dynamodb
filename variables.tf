@@ -1,13 +1,18 @@
+variable "region" {
+  description = "name of the aws region"
+  type = string
+  default = "eu-west-1"
+}
 variable "create_table" {
   description = "Controls if DynamoDB table and associated resources are created"
   type        = bool
-  default     = false
+  default     = true
 }
 
 variable "dynamodb_name" {
   description = "Name of the DynamoDB table"
   type        = string
-  default     = ""
+  default     = "demodynamodb"
 }
 variable "environment" {
   description = "The environment to deploy to."

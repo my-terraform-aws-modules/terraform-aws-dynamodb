@@ -1,9 +1,5 @@
-provider "aws" {
-  region = "eu-west-2"
-}
 resource "aws_dynamodb_table" "this" {
   count = var.create_table  ? 1 : 0
-
   name             = "${var.environment}-${var.dynamodb_name}"
   billing_mode     = var.billing_mode
   hash_key         = var.hash_key
@@ -12,8 +8,6 @@ resource "aws_dynamodb_table" "this" {
   write_capacity   = var.write_capacity
   stream_enabled   = var.stream_enabled
   stream_view_type = var.stream_view_type
-  
-
   ttl {
     enabled        = var.ttl_enabled
     attribute_name = var.ttl_attribute_name
